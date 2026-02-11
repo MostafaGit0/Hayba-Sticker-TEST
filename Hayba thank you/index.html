@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAYBA - Thank You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Didot&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F5F3EE;
+            --gold: #B8935D;
+            --dark-gold: #8B6F3D;
+            --charcoal: #2C2C2C;
+            --soft-white: #FEFDFB;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(184, 147, 93, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(184, 147, 93, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(184, 147, 93, 0.02) 0%, transparent 50%);
+            animation: breathe 15s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes breathe {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        /* Decorative corner flourishes */
+        .corner-flourish {
+            position: fixed;
+            width: 180px;
+            height: 180px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .corner-flourish.top-left {
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, var(--gold) 0%, transparent 70%);
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+
+        .corner-flourish.top-right {
+            top: 0;
+            right: 0;
+            background: linear-gradient(225deg, var(--gold) 0%, transparent 70%);
+            clip-path: polygon(100% 0, 100% 100%, 0 0);
+        }
+
+        .corner-flourish.bottom-left {
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(45deg, var(--gold) 0%, transparent 70%);
+            clip-path: polygon(0 0, 100% 100%, 0 100%);
+        }
+
+        .corner-flourish.bottom-right {
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(315deg, var(--gold) 0%, transparent 70%);
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 2rem;
+        }
+
+        /* Logo section */
+        .logo-container {
+            margin-top: 2rem;
+            margin-bottom: 4rem;
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        .logo {
+            width: 280px;
+            height: auto;
+            filter: drop-shadow(0 4px 20px rgba(184, 147, 93, 0.15));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Main content */
+        .content {
+            max-width: 900px;
+            text-align: center;
+            padding: 4rem 3rem;
+            background: rgba(254, 253, 251, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(184, 147, 93, 0.15);
+            border-radius: 2px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(184, 147, 93, 0.05) inset;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.4s ease-out 0.3s both;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Decorative divider */
+        .divider {
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 2.5rem auto;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--gold);
+            font-size: 0.7rem;
+            background: var(--soft-white);
+            padding: 0 0.8rem;
+        }
+
+        /* Typography */
+        .message {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+            animation: fadeIn 1.6s ease-out 0.6s both;
+        }
+
+        .message .highlight {
+            color: var(--dark-gold);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .message .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            animation: underlineGrow 1.5s ease-out 1.5s both;
+        }
+
+        @keyframes underlineGrow {
+            from {
+                width: 0;
+                left: 50%;
+            }
+            to {
+                width: 100%;
+                left: 0;
+            }
+        }
+
+        .body-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            line-height: 1.9;
+            color: rgba(44, 44, 44, 0.85);
+            font-weight: 400;
+            max-width: 750px;
+            margin: 0 auto;
+            animation: fadeIn 1.8s ease-out 0.9s both;
+        }
+
+        .body-text strong {
+            color: var(--dark-gold);
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Islamic calligraphy style accent */
+        .blessing {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--dark-gold);
+            margin-top: 3rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            animation: fadeIn 2s ease-out 1.2s both;
+        }
+
+        /* Floating particles */
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 15%;
+            animation: float-particle 8s ease-in-out infinite;
+        }
+
+        .particle:nth-child(2) {
+            top: 60%;
+            right: 20%;
+            animation: float-particle 10s ease-in-out infinite 2s;
+        }
+
+        .particle:nth-child(3) {
+            top: 80%;
+            left: 25%;
+            animation: float-particle 12s ease-in-out infinite 4s;
+        }
+
+        .particle:nth-child(4) {
+            top: 30%;
+            right: 30%;
+            animation: float-particle 9s ease-in-out infinite 1s;
+        }
+
+        @keyframes float-particle {
+            0%, 100% {
+                opacity: 0;
+                transform: translateY(0) scale(1);
+            }
+            10%, 90% {
+                opacity: 0.4;
+            }
+            50% {
+                opacity: 0.6;
+                transform: translateY(-30px) scale(1.5);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .logo {
+                width: 200px;
+            }
+
+            .content {
+                padding: 3rem 2rem;
+            }
+
+            .message {
+                font-size: 1.6rem;
+            }
+
+            .body-text {
+                font-size: 1.2rem;
+            }
+
+            .corner-flourish {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .logo {
+                width: 160px;
+            }
+
+            .content {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .message {
+                font-size: 1.4rem;
+            }
+
+            .body-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Subtle grain texture overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.02) 2px, rgba(0,0,0,.02) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.02) 2px, rgba(0,0,0,.02) 4px);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Corner flourishes -->
+    <div class="corner-flourish top-left"></div>
+    <div class="corner-flourish top-right"></div>
+    <div class="corner-flourish bottom-left"></div>
+    <div class="corner-flourish bottom-right"></div>
+
+    <!-- Floating particles -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="./img/Hlogo.png" alt="HAYBA Logo" class="logo">
+        </div>
+
+        <!-- Main content -->
+        <div class="content">
+            <p class="message">
+                Thank you for being one of the <span class="highlight">first</span> to purchase our hijabs.
+            </p>
+            
+            <div class="divider"></div>
+            
+            <p class="body-text">
+                We truly appreciate your support. You are going to look <strong>beautiful</strong> wearing it.
+                <br><br>
+                A portion of your purchase has been donated as <strong>sadaqah jariyah</strong> on your behalf.
+            </p>
+
+            <p class="blessing">
+                May Allah SWT bless you, reward you, and place barakah in all that you do
+            </p>
+
+            <p class="body-text" style="margin-top: 3rem; font-style: italic; font-size: 1.3rem;">
+                With love,<br>The Hayba Team
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Add subtle parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 0.5;
+                const moveX = (x - 0.5) * speed * 20;
+                const moveY = (y - 0.5) * speed * 20;
+                particle.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
